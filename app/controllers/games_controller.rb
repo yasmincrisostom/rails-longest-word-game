@@ -19,10 +19,10 @@ class GamesController < ApplicationController
   end
 
   def include?
-    @each_word = params[:letter].split
-    @word = params[:word].upcase
+    @each_letter = params[:letter].split
+    @word = params[:word].downcase
     @word.chars.all? do |letter|
-      @word.count(letter) <= @each_word.count(letter)
+      @word.count(letter) <= @each_letter.count(letter)
     end
   end
 
